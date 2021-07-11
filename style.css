@@ -27,7 +27,7 @@ section {
   border: none;
   background-color: yellowgreen;
   cursor: pointer;
-  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  box-shadow: 5px 10px 15px -10px rgb(0, 0,0);
   outline: none;
   transition: 0.2s all;
 }
@@ -44,6 +44,7 @@ section {
     width: 400px;
     float: left;
     text-align: center;
+    padding: 10px;
 }
 .board{
     margin-top: 80px;

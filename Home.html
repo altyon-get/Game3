@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1 style="text-align: center;">TIC TOC TOE</h1>
+        <nav>
+        </nav>
+    </header>
+
+    <body>
+        <section id="section1">
+            <div class="section1">
+                <div class="info">
+                    <h2>Enter Players name:</h2>
+                    <br><br>
+                    <span id="pl1">Player 1:</span> <input type="text" id="name1"> [X]
+                    <br><br>
+                    <span id="pl2">Player 2:</span> <input type="text" id="name2"> [O]
+                </div>
+                <div class="start">
+                    <input type="button" value="Start Game" class="start-btn" id="start-btn" onClick="gamestrt()" />
+                </div>
+            </div>
+        </section>
+        <section id="section2">
+            <div class="col1">
+                <div class="board">
+                    <div class="row">
+                        <button class="btn" id="btn1" onclick="played('btn1')">-</button>
+                        <button class="btn" id="btn2" onclick="played('btn2')">-</button>
+                        <button class="btn" id="btn3" onclick="played('btn3')">-</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn" id="btn4" onclick="played('btn4')">-</button>
+                        <button class="btn" id="btn5" onclick="played('btn5')">-</button>
+                        <button class="btn" id="btn6" onclick="played('btn6')">-</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn" id="btn7" onclick="played('btn7')">-</button>
+                        <button class="btn" id="btn8" onclick="played('btn8')">-</button>
+                        <button class="btn" id="btn9" onclick="played('btn9')">-</button>
+                    </div>
+                </div>
+                <div class="playagain">
+                    <input type="button" value="Play Again" class="play-again-btn" id="start-btn" onClick="" />
+                </div>
+            </div>
+            <div class="col2">
+                <div class="score">
+                    <span id="pl1">Player 1: <p id="enter1"></p>
+                       <br>  <p id="turn"></p>
+                    </span>
+                    <span id="pl2">Player 2: <p id="enter2"></p> </span>
+                </div>
+            </div>
+        </section>
+        <section id="3">
+            <div class="section3">
+            </div>
+        </section>
+    </body>
+    <footer>
+        <a href="#">Altyon</a>
+    </footer>
+    <script>
+        var pl1_name;
+        var pl2_name;
+        function gamestrt() {
+            document.getElementById('section2').scrollIntoView();
+            pl1_name = document.getElementById("name1").value;
+            pl2_name = document.getElementById("name2").value;
+            document.getElementById('enter1').innerHTML = pl1_name;
+            document.getElementById('enter2').innerHTML = pl2_name;
+            document.getElementById('turn').innerHTML = pl1_name + " its your turn";
+        }
+        let flag = 0;
+        function win(){
+            document.getElementById('btn1').disabled=true;
+            document.getElementById('btn2').disabled=true;
+            document.getElementById('btn3').disabled=true;
+            document.getElementById('btn4').disabled=true;
+            document.getElementById('btn5').disabled=true;
+            document.getElementById('btn6').disabled=true;
+            document.getElementById('btn7').disabled=true;
+            document.getElementById('btn8').disabled=true;
+            document.getElementById('btn9').disabled=true;
+        }
+        function played(idn) {
+            var x = document.getElementById(idn);
+            if (flag == 0) {
+                x.innerHTML = "X";
+                flag = 1;
+                document.getElementById('turn').innerHTML = pl2_name + " its your turn";
+            }
+            else {
+                x.innerHTML = "O";
+                flag = 0;
+                document.getElementById('turn').innerHTML = pl1_name + " its your turn";
+            }
+            x.disabled = true;
+            check();
+        }
+        function check() {
+            b1 = document.getElementById('btn1').innerHTML;
+            b2 = document.getElementById('btn2').innerHTML;
+            b3 = document.getElementById('btn3').innerHTML;
+            b4 = document.getElementById('btn4').innerHTML;
+            b5 = document.getElementById('btn5').innerHTML;
+            b6 = document.getElementById('btn6').innerHTML;
+            b7 = document.getElementById('btn7').innerHTML;
+            b8 = document.getElementById('btn8').innerHTML;
+            b9 = document.getElementById('btn9').innerHTML;
+            var x;
+            if (b1 != '-') {
+                if (b1 == 'X') x = pl1_name;
+                else x = pl2_name;
+                if (b1 == b2 && b2 == b3) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+                if (b1 == b5 && b5 == b9) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+                if (b1 == b4 && b4 == b7) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+            }
+            if (b2 != '-') {
+                if (b2 == 'X') x = pl1_name;
+                else x = pl2_name;
+                if (b2 == b5 && b5 == b8) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+            }
+            if (b3 != '-') {
+                if (b3 == 'X') x = pl1_name;
+                else x = pl2_name;
+                if (b3 == b6 && b3 == b9) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+                if (b3 == b5 && b5 == b7) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+            }
+            if (b4 != '-') {
+                if (b4 == 'X') x = pl1_name;
+                else x = pl2_name;
+                if (b4 == b5 && b5 == b6) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+            }
+            if (b7 != '-') {
+                if (b7 == 'X') x = pl1_name;
+                else x = pl2_name;
+                if (b7 == b8 && b8 == b9) {
+                    document.getElementById('turn').innerHTML = x + " wins";
+                    win();
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

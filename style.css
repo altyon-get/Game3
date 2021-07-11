@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+  scroll-behavior: smooth;
+  margin: 0;
+}
+section {
+  height: 80vh;
+  border: 1px black solid;
+}
+#section1 {
+  text-align: center;
+  padding: 40px;
+  margin: 50px 100px;
+}
+#pl1,
+#pl2 {
+  font-size: 150%;
+  font-weight: 600;
+}
+.start-btn,
+.play-again-btn{
+  margin-top: 80px;
+  font-size: 120%;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: yellowgreen;
+  cursor: pointer;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  outline: none;
+  transition: 0.2s all;
+}
+.start-btn:active,.play-again-btn:active{
+  transform: scale(0.92);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+#section2 {
+    padding: 40px;
+    margin: 50px 100px;
+}
+.col1{
+    border: 1px black solid;
+    width: 400px;
+    float: left;
+    text-align: center;
+}
+.board{
+    margin-top: 80px;
+}
+.btn {
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  font-weight: 800;
+  font-size: large;
+}
+.col2{
+    padding: 10px;
+    border: 1px black solid;
+    width: 400px;
+    height: 300px;
+    float: right;
+}
+#score_board {
+  border: 1px black solid;
+  height: 100px;
+  width: 100px;
+} 
+.col2 #pl1{
+    float: left;
+    line-height: 1.5;
+}
+.col2 #pl2{
+    line-height: 1.5;
+}
+
+
+input[type='text']{
+    font-size: large;
+    font-weight: 800;
+    padding: 2px 6px;
+}
+footer{
+  background-color: rgb(110, 109, 107);
+  text-align: center;
+  position: sticky;
+  height: 25px;
+  bottom: 0;;
+  padding: 4px;
+}
+footer a{
+  font-size: 15px;
+  cursor: pointer;
+}

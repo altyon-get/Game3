@@ -111,6 +111,19 @@ section {
   transform: scale(0.92);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
+.new-game-btn{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  box-shadow: 2px 4px 8px 2px rgb(91, 86, 94);
+  font-size: 120%;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: rgb(75, 91, 143);
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+}
 input[type='text']{
     font-size: large;
     font-weight: 800;
@@ -185,7 +198,7 @@ footer a{
    padding: 10px;
    width: 80%;
    margin: 10px 10%;
-   height: 50%;
+   height: 60%;
  }
  .col2{
   height: 30%;

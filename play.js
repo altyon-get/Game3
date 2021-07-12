@@ -7,6 +7,12 @@ document.getElementById('play-again-btn').disabled = true;
 var pl1_name;
 var pl2_name;
 let flag = 0;
+function newgame() {
+    sound1.play();
+    document.getElementById('head').scrollIntoView();
+    document.getElementById("name1").value="";
+    document.getElementById("name2").value="";
+}
 function gamestrt() {
     sound1.play();
     document.getElementById('section2').scrollIntoView();
@@ -15,6 +21,8 @@ function gamestrt() {
     document.getElementById('enter1').innerHTML = "(" + pl1_name + ")";
     document.getElementById('enter2').innerHTML = "(" + pl2_name + ")";
     document.getElementById('turn').innerHTML = pl1_name + " its your turn";
+    firstview();
+    document.getElementById('play-again-btn').disabled = true;
 }
 function win() {
     sound3.play();
@@ -139,6 +147,12 @@ function functionAlert(msg, myYes) {
 //for play again
 function playagain(){
     sound4.play();
+    firstview();
+    document.getElementById('turn').innerHTML =pl1_name+" its your turn";
+    document.getElementById('play-again-btn').disabled = true;
+}
+
+function firstview(){
     document.getElementById('btn1').disabled = false;
     document.getElementById('btn2').disabled = false;
     document.getElementById('btn3').disabled = false;
@@ -157,6 +171,4 @@ function playagain(){
     document.getElementById('btn7').innerHTML="-";
     document.getElementById('btn8').innerHTML="-";
     document.getElementById('btn9').innerHTML="-";
-    document.getElementById('turn').innerHTML =pl1_name+" its your turn";
-    document.getElementById('play-again-btn').disabled = true;
 }

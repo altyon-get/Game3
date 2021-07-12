@@ -22,13 +22,12 @@
     <title>TIC TAC TOE</title>
 </head>
 <body>
-    <header>
+    <header id="head">
         <br>
         <h1 style="text-align: center;">TIC TAC TOE</h1>
         <nav>
         </nav>
     </header>
-    <body>
         <div id="confirm">
             <div class="message">This is a warning message.</div>
             <button class="yes">Close</button>
@@ -75,7 +74,11 @@
                 <div class="playagain">
                     <input type="button" value="Play Again" class="play-again-btn" id="play-again-btn" onClick="playagain()" />
                 </div>
+                <div class="newgame">
+                    <input type="button" value="Start New Game" class="new-game-btn" id="new-game-btn" onClick="newgame()" />
+                </div>
             </div>
+            
             <div class="col2" id="score_board">
                 <h1 style="text-decoration: underline;">Info:</h1>
                 <br>

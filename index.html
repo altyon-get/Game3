@@ -18,14 +18,16 @@
     </header>
 
     <body>
+        <audio src="assets/sound/sound1.wav" id="click1"></audio>
+        <audio src="assets/sound/sound2.wav" id="click2"></audio>
         <section id="section1">
-            <div class="section1">
+            <div class="sec-info">
                 <div class="info">
                     <h2>Enter Players name:</h2>
                     <br><br>
-                    <span id="pl1">Player 1:</span> <input type="text" id="name1"> [X]
+                    <span id="pl1">Player1 [X]:</span> <input type="text" id="name1">
                     <br><br>
-                    <span id="pl2">Player 2:</span> <input type="text" id="name2"> [O]
+                    <span id="pl2">Player2 [O]:</span> <input type="text" id="name2">
                 </div>
                 <div class="start">
                     <input type="button" value="Start Game" class="start-btn" id="start-btn" onClick="gamestrt()" />
@@ -58,7 +60,8 @@
             <div class="col2">
                 <div class="score">
                     <span id="pl1">Player 1: <p id="enter1"></p>
-                       <br>  <p id="turn"></p>
+                        <br>
+                        <p id="turn"></p>
                     </span>
                     <span id="pl2">Player 2: <p id="enter2"></p> </span>
                 </div>
@@ -68,34 +71,42 @@
             <div class="section3">
             </div>
         </section>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            This is an alert box.
+        </div>
     </body>
     <footer>
         <a href="#">Altyon</a>
     </footer>
     <script>
+        var sound1 = document.getElementById("click1");
+        var sound2 = document.getElementById("click1");
         var pl1_name;
         var pl2_name;
         function gamestrt() {
+            sound1.play();
             document.getElementById('section2').scrollIntoView();
             pl1_name = document.getElementById("name1").value;
             pl2_name = document.getElementById("name2").value;
-            document.getElementById('enter1').innerHTML = "("+pl1_name+")";
-            document.getElementById('enter2').innerHTML ="("+pl2_name+")";
+            document.getElementById('enter1').innerHTML = "(" + pl1_name + ")";
+            document.getElementById('enter2').innerHTML = "(" + pl2_name + ")";
             document.getElementById('turn').innerHTML = pl1_name + " its your turn";
         }
         let flag = 0;
-        function win(){
-            document.getElementById('btn1').disabled=true;
-            document.getElementById('btn2').disabled=true;
-            document.getElementById('btn3').disabled=true;
-            document.getElementById('btn4').disabled=true;
-            document.getElementById('btn5').disabled=true;
-            document.getElementById('btn6').disabled=true;
-            document.getElementById('btn7').disabled=true;
-            document.getElementById('btn8').disabled=true;
-            document.getElementById('btn9').disabled=true;
+        function win() {
+            document.getElementById('btn1').disabled = true;
+            document.getElementById('btn2').disabled = true;
+            document.getElementById('btn3').disabled = true;
+            document.getElementById('btn4').disabled = true;
+            document.getElementById('btn5').disabled = true;
+            document.getElementById('btn6').disabled = true;
+            document.getElementById('btn7').disabled = true;
+            document.getElementById('btn8').disabled = true;
+            document.getElementById('btn9').disabled = true;
         }
         function played(idn) {
+            sound2.play();
             var x = document.getElementById(idn);
             if (flag == 0) {
                 x.innerHTML = "X";
@@ -121,6 +132,9 @@
             b8 = document.getElementById('btn8').innerHTML;
             b9 = document.getElementById('btn9').innerHTML;
             var x;
+            if (b1 != '-' && b2 != '-' && b3 != '-' && b4 != '-' && b5 != '-' && b6 != '-' && b7 != '-' && b8 != '-' && b9 != '-') {
+                document.getElementById('turn').innerHTML = "Game Draw";
+            }
             if (b1 != '-') {
                 if (b1 == 'X') x = pl1_name;
                 else x = pl2_name;
@@ -173,7 +187,6 @@
                     win();
                 }
             }
-
         }
     </script>
 

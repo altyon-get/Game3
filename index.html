@@ -36,6 +36,9 @@
         </div>
         <audio src="assets/sound/sound1.wav" id="click1"></audio>
         <audio src="assets/sound/sound2.wav" id="click2"></audio>
+        <audio src="assets/sound/sound3.wav" id="click3"></audio>
+        <audio src="assets/sound/playagain.wav" id="click4"></audio>
+        <audio src="assets/sound/error.wav" id="click5"></audio>
         <section id="section1">
             <div class="sec-info">
                 <div class="info">
@@ -95,6 +98,9 @@
         <script>
             var sound1 = document.getElementById("click1");
             var sound2 = document.getElementById("click2");
+            var sound3 = document.getElementById("click3");
+            var sound4 = document.getElementById("click4");
+            var sound5 = document.getElementById("click5");
             document.getElementById('play-again-btn').disabled = true;
             var pl1_name;
             var pl2_name;
@@ -109,6 +115,7 @@
             }
             let flag = 0;
             function win() {
+                sound3.play();
                 document.getElementById('play-again-btn').disabled = false;
                 document.getElementById('btn1').disabled = true;
                 document.getElementById('btn2').disabled = true;
@@ -132,7 +139,7 @@
                 else {
                     x.innerHTML = "O";
                     flag = 0;
-                    document.getElementById('turn').innerHTML = pl1_name + " its your turn";
+                    document.getElementById('turn').innerHTML = pl1_name + " now your turn";
                 }
                 x.disabled = true;
                 check();
@@ -149,10 +156,13 @@
                 b8 = document.getElementById('btn8').innerHTML;
                 b9 = document.getElementById('btn9').innerHTML;
                 var x;
+                //to check draw
                 if (b1 != '-' && b2 != '-' && b3 != '-' && b4 != '-' && b5 != '-' && b6 != '-' && b7 != '-' && b8 != '-' && b9 != '-') {
                     document.getElementById('turn').innerHTML = "Game Draw";
                     document.getElementById('play-again-btn').disabled = false;
+                    sound5.play();
                 }
+                //rest condition
                 if (b1 != '-') {
                     if (b1 == 'X') x = pl1_name;
                     else x = pl2_name;
@@ -226,6 +236,7 @@
             }
             //for play again
             function playagain(){
+                sound4.play();
                 document.getElementById('btn1').disabled = false;
                 document.getElementById('btn2').disabled = false;
                 document.getElementById('btn3').disabled = false;
@@ -245,6 +256,7 @@
                 document.getElementById('btn8').innerHTML="-";
                 document.getElementById('btn9').innerHTML="-";
                 document.getElementById('turn').innerHTML =pl1_name+" its your turn";
+                document.getElementById('play-again-btn').disabled = true;
             }
 
         </script>

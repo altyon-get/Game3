@@ -5,14 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+
+    <!-- style sheet  -->
     <link rel="stylesheet" href="style.css">
-    <title>Tic Tac Toe</title>
+
+    <title>TIC TAC TOE</title>
 </head>
 
 <body>
     <header>
         <br>
-        <h1 style="text-align: center;">TIC TOC TOE</h1>
+        <h1 style="text-align: center;">TIC TAC TOE</h1>
         <nav>
         </nav>
     </header>
@@ -20,7 +34,7 @@
     <body>
         <div id="confirm">
             <div class="message">This is a warning message.</div>
-               <button class="yes">OK</button>
+            <button class="yes">Close</button>
         </div>
         <audio src="assets/sound/sound1.wav" id="click1"></audio>
         <audio src="assets/sound/sound2.wav" id="click2"></audio>
@@ -61,151 +75,160 @@
                     <input type="button" value="Play Again" class="play-again-btn" id="start-btn" onClick="" />
                 </div>
             </div>
-            <div class="col2">
-                <div class="score">
-                    <span id="pl1">Player 1: <p id="enter1"></p>
-                        <br>
-                        <p id="turn"></p>
-                    </span>
-                    <span id="pl2">Player 2: <p id="enter2"></p> </span>
-                </div>
+            <div class="col2" id="score_board">
+                <h1 style="text-decoration: underline;">Info:</h1>
+                <span id="pl1">Player 1: <p id="enter1"></p>
+                    <br>
+                    <p id="turn"></p>
+                </span>
+                <span id="pl2">Player 2: <p id="enter2"></p> </span>
             </div>
         </section>
-        <section id="3">
+        <!-- <section id="3">
             <div class="section3">
             </div>
-        </section>
-        
-    </body>
-    <footer>
-        <a href="#">Altyon</a>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        var sound1 = document.getElementById("click1");
-        var sound2 = document.getElementById("click2");
-        var pl1_name;
-        var pl2_name;
-        function gamestrt() {
-            sound1.play();
-            document.getElementById('section2').scrollIntoView();
-            pl1_name = document.getElementById("name1").value;
-            pl2_name = document.getElementById("name2").value;
-            document.getElementById('enter1').innerHTML = "(" + pl1_name + ")";
-            document.getElementById('enter2').innerHTML = "(" + pl2_name + ")";
-            document.getElementById('turn').innerHTML = pl1_name + " its your turn";
-        }
-        let flag = 0;
-        function win() {
-            document.getElementById('btn1').disabled = true;
-            document.getElementById('btn2').disabled = true;
-            document.getElementById('btn3').disabled = true;
-            document.getElementById('btn4').disabled = true;
-            document.getElementById('btn5').disabled = true;
-            document.getElementById('btn6').disabled = true;
-            document.getElementById('btn7').disabled = true;
-            document.getElementById('btn8').disabled = true;
-            document.getElementById('btn9').disabled = true;
-        }
-        function played(idn) {
-            sound2.play();
-            var x = document.getElementById(idn);
-            if (flag == 0) {
-                x.innerHTML = "X";
-                flag = 1;
-                document.getElementById('turn').innerHTML = pl2_name + " its your turn";
-            }
-            else {
-                x.innerHTML = "O";
-                flag = 0;
+        </section> -->
+        <footer>
+            <div class="credits">
+                <!-- <span style="color: aliceblue;">Any Suggestion:</span> -->
+                <a href="https://linktr.ee/altyon" target="_blank">
+                    altyon</a>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            var sound1 = document.getElementById("click1");
+            var sound2 = document.getElementById("click2");
+            var pl1_name;
+            var pl2_name;
+            function gamestrt() {
+                sound1.play();
+                document.getElementById('section2').scrollIntoView();
+                pl1_name = document.getElementById("name1").value;
+                pl2_name = document.getElementById("name2").value;
+                document.getElementById('enter1').innerHTML = "(" + pl1_name + ")";
+                document.getElementById('enter2').innerHTML = "(" + pl2_name + ")";
                 document.getElementById('turn').innerHTML = pl1_name + " its your turn";
             }
-            x.disabled = true;
-            check();
-        }
-        function check() {
-            b1 = document.getElementById('btn1').innerHTML;
-            b2 = document.getElementById('btn2').innerHTML;
-            b3 = document.getElementById('btn3').innerHTML;
-            b4 = document.getElementById('btn4').innerHTML;
-            b5 = document.getElementById('btn5').innerHTML;
-            b6 = document.getElementById('btn6').innerHTML;
-            b7 = document.getElementById('btn7').innerHTML;
-            b8 = document.getElementById('btn8').innerHTML;
-            b9 = document.getElementById('btn9').innerHTML;
-            var x;
-            if (b1 != '-' && b2 != '-' && b3 != '-' && b4 != '-' && b5 != '-' && b6 != '-' && b7 != '-' && b8 != '-' && b9 != '-') {
-                document.getElementById('turn').innerHTML = "Game Draw";
+            let flag = 0;
+            function win() {
+                document.getElementById('btn1').disabled = true;
+                document.getElementById('btn2').disabled = true;
+                document.getElementById('btn3').disabled = true;
+                document.getElementById('btn4').disabled = true;
+                document.getElementById('btn5').disabled = true;
+                document.getElementById('btn6').disabled = true;
+                document.getElementById('btn7').disabled = true;
+                document.getElementById('btn8').disabled = true;
+                document.getElementById('btn9').disabled = true;
             }
-            if (b1 != '-') {
-                if (b1 == 'X') x = pl1_name;
-                else x = pl2_name;
-                if (b1 == b2 && b2 == b3) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    functionAlert(x+' wins');
-                    win();
+            functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+            function played(idn) {
+                sound2.play();
+                var x = document.getElementById(idn);
+                if (flag == 0) {
+                    x.innerHTML = "X";
+                    flag = 1;
+                    document.getElementById('turn').innerHTML = pl2_name + " its your turn";
                 }
-                if (b1 == b5 && b5 == b9) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
+                else {
+                    x.innerHTML = "O";
+                    flag = 0;
+                    document.getElementById('turn').innerHTML = pl1_name + " its your turn";
                 }
-                if (b1 == b4 && b4 == b7) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
+                x.disabled = true;
+                check();
+            }
+            function check() {
+                b1 = document.getElementById('btn1').innerHTML;
+                b2 = document.getElementById('btn2').innerHTML;
+                b3 = document.getElementById('btn3').innerHTML;
+                b4 = document.getElementById('btn4').innerHTML;
+                b5 = document.getElementById('btn5').innerHTML;
+                b6 = document.getElementById('btn6').innerHTML;
+                b7 = document.getElementById('btn7').innerHTML;
+                b8 = document.getElementById('btn8').innerHTML;
+                b9 = document.getElementById('btn9').innerHTML;
+                var x;
+                if (b1 != '-' && b2 != '-' && b3 != '-' && b4 != '-' && b5 != '-' && b6 != '-' && b7 != '-' && b8 != '-' && b9 != '-') {
+                    document.getElementById('turn').innerHTML = "Game Draw";
+                }
+                if (b1 != '-') {
+                    if (b1 == 'X') x = pl1_name;
+                    else x = pl2_name;
+                    if (b1 == b2 && b2 == b3) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                    if (b1 == b5 && b5 == b9) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                    if (b1 == b4 && b4 == b7) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                }
+                if (b2 != '-') {
+                    if (b2 == 'X') x = pl1_name;
+                    else x = pl2_name;
+                    if (b2 == b5 && b5 == b8) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                }
+                if (b3 != '-') {
+                    if (b3 == 'X') x = pl1_name;
+                    else x = pl2_name;
+                    if (b3 == b6 && b3 == b9) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                    if (b3 == b5 && b5 == b7) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                }
+                if (b4 != '-') {
+                    if (b4 == 'X') x = pl1_name;
+                    else x = pl2_name;
+                    if (b4 == b5 && b5 == b6) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
+                }
+                if (b7 != '-') {
+                    if (b7 == 'X') x = pl1_name;
+                    else x = pl2_name;
+                    if (b7 == b8 && b8 == b9) {
+                        document.getElementById('turn').innerHTML = x + " wins";
+                        functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+                        win();
+                    }
                 }
             }
-            if (b2 != '-') {
-                if (b2 == 'X') x = pl1_name;
-                else x = pl2_name;
-                if (b2 == b5 && b5 == b8) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
-                }
-            }
-            if (b3 != '-') {
-                if (b3 == 'X') x = pl1_name;
-                else x = pl2_name;
-                if (b3 == b6 && b3 == b9) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
-                }
-                if (b3 == b5 && b5 == b7) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
-                }
-            }
-            if (b4 != '-') {
-                if (b4 == 'X') x = pl1_name;
-                else x = pl2_name;
-                if (b4 == b5 && b5 == b6) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
-                }
-            }
-            if (b7 != '-') {
-                if (b7 == 'X') x = pl1_name;
-                else x = pl2_name;
-                if (b7 == b8 && b8 == b9) {
-                    document.getElementById('turn').innerHTML = x + " wins";
-                    win();
-                }
-            }
-        }
-        
-        //For alert
-        function functionAlert(msg, myYes) {
-            var confirmBox = $("#confirm");
-            confirmBox.find(".message").text(msg);
-            confirmBox.find(".yes").unbind().click(function() {
-               confirmBox.hide();
-            });
-            confirmBox.find(".yes").click(myYes);
-            confirmBox.show();
-         }
-        //
 
-    </script>
+            //For alert
+            function functionAlert(msg, myYes) {
+                var confirmBox = $("#confirm");
+                confirmBox.find(".message").text(msg);
+                confirmBox.find(".yes").unbind().click(function () {
+                    confirmBox.hide();
+                });
+                confirmBox.find(".yes").click(myYes);
+                confirmBox.show();
+            }
+           //For alert ends
 
-</body>
+        </script>
+
+    </body>
 
 </html>

@@ -69,11 +69,13 @@ section {
   margin: 10px;
   font-weight: 800;
   font-size: 40px;
+  background-color: orange;
 }
 .btn:disabled{
   border: 2px 2px 1px 1pxsolid #000000;
-  background-color: #eeeeee;
+  background-color: orange;
   color: #974c4c;
+
 }
 .col2{
   border: 1px black solid;
@@ -109,8 +111,6 @@ section {
   transform: scale(0.92);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
-
-
 input[type='text']{
     font-size: large;
     font-weight: 800;
@@ -176,9 +176,31 @@ footer a{
   }
 }
 @media screen and (max-width: 600px){
-  #section2{
-    background-image: none;
-  }
+ #section2{
+   padding: 0;
+   margin: 0;
+ }
+ .col1,.col2{
+   margin: 10px;
+   padding: 10px;
+   width: 80%;
+   margin: 10px 10%;
+   height: 50%;
+ }
+ .col2{
+  height: 30%;
+  text-align: center;
+ }
+ .board{
+   margin-top: 20px;
+ }
+ .btn{
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  font-weight: 400;
+  font-size: 20px;
+ }
 }
 @media screen and (max-width: 420px) {
   #section1{
@@ -249,9 +271,6 @@ footer a{
 /*  */
 /* For bk img */
 /*  */
-.btn{
-  background-image: url("https://cdn.wallpapersafari.com/61/41/i4Zgzd.jpg");
-}
 body{
   background-image: linear-gradient(to right, #b0d9ee, #71b1de, #3786cd, #005bb7, #142c98);
 }

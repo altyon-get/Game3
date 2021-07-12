@@ -18,6 +18,10 @@
     </header>
 
     <body>
+        <div id="confirm">
+            <div class="message">This is a warning message.</div>
+               <button class="yes">OK</button>
+        </div>
         <audio src="assets/sound/sound1.wav" id="click1"></audio>
         <audio src="assets/sound/sound2.wav" id="click2"></audio>
         <section id="section1">
@@ -71,17 +75,15 @@
             <div class="section3">
             </div>
         </section>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            This is an alert box.
-        </div>
+        
     </body>
     <footer>
         <a href="#">Altyon</a>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         var sound1 = document.getElementById("click1");
-        var sound2 = document.getElementById("click1");
+        var sound2 = document.getElementById("click2");
         var pl1_name;
         var pl2_name;
         function gamestrt() {
@@ -140,6 +142,7 @@
                 else x = pl2_name;
                 if (b1 == b2 && b2 == b3) {
                     document.getElementById('turn').innerHTML = x + " wins";
+                    functionAlert(x+' wins');
                     win();
                 }
                 if (b1 == b5 && b5 == b9) {
@@ -188,6 +191,19 @@
                 }
             }
         }
+        
+        //For alert
+        function functionAlert(msg, myYes) {
+            var confirmBox = $("#confirm");
+            confirmBox.find(".message").text(msg);
+            confirmBox.find(".yes").unbind().click(function() {
+               confirmBox.hide();
+            });
+            confirmBox.find(".yes").click(myYes);
+            confirmBox.show();
+         }
+        //
+
     </script>
 
 </body>

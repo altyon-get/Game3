@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +29,6 @@
         <nav>
         </nav>
     </header>
-
     <body>
         <div id="confirm">
             <div class="message">This is a warning message.</div>
@@ -54,6 +52,7 @@
         </section>
         <section id="section2">
             <div class="col1">
+                <h1>Tic Tac Toe</h1>
                 <div class="board">
                     <div class="row">
                         <button class="btn" id="btn1" onclick="played('btn1')">-</button>
@@ -72,11 +71,12 @@
                     </div>
                 </div>
                 <div class="playagain">
-                    <input type="button" value="Play Again" class="play-again-btn" id="start-btn" onClick="" />
+                    <input type="button" value="Play Again" class="play-again-btn" id="play-again-btn" onClick="playagain()" />
                 </div>
             </div>
             <div class="col2" id="score_board">
                 <h1 style="text-decoration: underline;">Info:</h1>
+                <br>
                 <span id="pl1">Player 1: <p id="enter1"></p>
                     <br>
                     <p id="turn"></p>
@@ -84,10 +84,6 @@
                 <span id="pl2">Player 2: <p id="enter2"></p> </span>
             </div>
         </section>
-        <!-- <section id="3">
-            <div class="section3">
-            </div>
-        </section> -->
         <footer>
             <div class="credits">
                 <!-- <span style="color: aliceblue;">Any Suggestion:</span> -->
@@ -99,6 +95,7 @@
         <script>
             var sound1 = document.getElementById("click1");
             var sound2 = document.getElementById("click2");
+            document.getElementById('play-again-btn').disabled = true;
             var pl1_name;
             var pl2_name;
             function gamestrt() {
@@ -112,6 +109,7 @@
             }
             let flag = 0;
             function win() {
+                document.getElementById('play-again-btn').disabled = false;
                 document.getElementById('btn1').disabled = true;
                 document.getElementById('btn2').disabled = true;
                 document.getElementById('btn3').disabled = true;
@@ -122,7 +120,7 @@
                 document.getElementById('btn8').disabled = true;
                 document.getElementById('btn9').disabled = true;
             }
-            functionAlert("Congratulations!!!\n" + x + "\nYOU WIN");
+            //when a player click
             function played(idn) {
                 sound2.play();
                 var x = document.getElementById(idn);
@@ -139,6 +137,7 @@
                 x.disabled = true;
                 check();
             }
+            //check
             function check() {
                 b1 = document.getElementById('btn1').innerHTML;
                 b2 = document.getElementById('btn2').innerHTML;
@@ -152,6 +151,7 @@
                 var x;
                 if (b1 != '-' && b2 != '-' && b3 != '-' && b4 != '-' && b5 != '-' && b6 != '-' && b7 != '-' && b8 != '-' && b9 != '-') {
                     document.getElementById('turn').innerHTML = "Game Draw";
+                    document.getElementById('play-again-btn').disabled = false;
                 }
                 if (b1 != '-') {
                     if (b1 == 'X') x = pl1_name;
@@ -214,7 +214,6 @@
                     }
                 }
             }
-
             //For alert
             function functionAlert(msg, myYes) {
                 var confirmBox = $("#confirm");
@@ -225,7 +224,28 @@
                 confirmBox.find(".yes").click(myYes);
                 confirmBox.show();
             }
-           //For alert ends
+            //for play again
+            function playagain(){
+                document.getElementById('btn1').disabled = false;
+                document.getElementById('btn2').disabled = false;
+                document.getElementById('btn3').disabled = false;
+                document.getElementById('btn4').disabled = false;
+                document.getElementById('btn5').disabled = false;
+                document.getElementById('btn6').disabled = false;
+                document.getElementById('btn7').disabled = false;
+                document.getElementById('btn8').disabled = false;
+                document.getElementById('btn9').disabled = false;
+                document.getElementById('btn1').innerHTML="-";
+                document.getElementById('btn2').innerHTML="-";
+                document.getElementById('btn3').innerHTML="-";
+                document.getElementById('btn4').innerHTML="-";
+                document.getElementById('btn5').innerHTML="-";
+                document.getElementById('btn6').innerHTML="-";
+                document.getElementById('btn7').innerHTML="-";
+                document.getElementById('btn8').innerHTML="-";
+                document.getElementById('btn9').innerHTML="-";
+                document.getElementById('turn').innerHTML =pl1_name+" its your turn";
+            }
 
         </script>
 
